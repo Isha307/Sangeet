@@ -1,0 +1,20 @@
+{% extends 'Sangeet/basic.htm' %}
+{% block title %} All Songs {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="padding-top: 3%;">
+            <img src="/media/{{song.image}}" alt=".." height="250px;" width="350px;" >
+        </div>
+        <div class="col-md-6">
+            <h2 style="padding-top: 5%; font: weight 600px; color:red;">Title: {{song.name}}</h2>
+            <h5 style="padding-top: 5%; font: weight 200px;">Category: {{song.tags}}</h5>
+            <h5 style="padding-top: 2%; font: weight 200px;">Singer: {{song.singer}}</h5>
+            <embed src="/media/songs/{{song.song}}" type="">
+        </div>
+    </div>
+</div>
+
+{% endblock%}5

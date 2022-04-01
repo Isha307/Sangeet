@@ -1,0 +1,27 @@
+{% extends 'Sangeet/basic.htm' %}
+{% block title %} All Songs {% endblock %}
+
+{% block body %}
+<div class="container">
+{% for i in song %}
+    
+        <div class="row" style="max-width: 1000; padding-top:2%">
+            <div class="col-12 mt-3">
+                <div class="card">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="" src="/media/{{i.image}}"alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: green; font-weight:700">{{i.name}}</h5>
+                            <p class="card-text" style="font-weight:400">{{i.tags}}</p>
+                        </div>
+                    </div>
+                    <a href="/Sangeet/songs/{{i.id}}"><button class="btn btn-outline-danger">Listen</button></a>
+                </div>
+            </div>
+        </div>
+    
+{% endfor %}
+</div>
+{% endblock%}
