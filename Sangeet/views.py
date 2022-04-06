@@ -12,3 +12,9 @@ def songs(request):
 def songpost(request,id):
     song = Song.objects.filter(id=id).first()
     return render(request, 'Sangeet/songpost.htm', {'song' :song})
+
+def login(request):
+    return render(request, 'Sangeet/login.htm')
+
+def signup(request):
+    return render(request, 'Sangeet/signup.htm')
