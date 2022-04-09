@@ -2,7 +2,17 @@
 {% block title %} All Songs {% endblock %}
 
 {% block body %}
-
+{% if cond%}
+<script>
+    Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
+</script>
+{% endif% }
 <div class="container">
     <div class="row">
         <div class="col-md-6" style="padding-top: 3%;">
@@ -15,9 +25,14 @@
             <audio controls style="padding-top: 2%">
                 <source src="/media/{{song.song}}" type="audio/mpeg">
             </audio>
-            <div style="padding-left: 15%; padding-top: 2%">
+            <div style=" padding-top: 2%" class="row">
                 <a href ="/media/{{song.song}}" download ><button class="btn btn-outline-danger">Download Song</button> </a>
-            </div>
+                <form style="padding-top: 2;" action="/Sangeet/watchlater"  method="POST">  {%csrf_token%}
+                <input style=" padding-top: 2%" type="hidden" name="video_id" value="{{song.id}}">
+                <button style=" padding-top: 2%" type="submit" class="btn btn-outline-danger" style="padding-right: 10;">Add to Watch Later</button>
+                </form>
+        
+        </div>
         </div>
         </div>
     </div>
