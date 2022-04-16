@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import redirect, render
 from Sangeet.models import Song, Watchlater
 from django.contrib.auth.models import User
@@ -22,14 +23,20 @@ def logout(request):
 
 def watchlater(request):
     if request.method=="POST":
-        cond = True
         user = request.user
         video_id = request.POST['video_id']
-        watchlater = Watchlater(user=user, video_id = video_id)
-        watchlater.save()
-        return redirect(f"Sangeet/songs/{video_id}")
-
-
+        message = "Your Video is Successfully Added"
+        watch = Watchlater.objects.filter(user = user)
+        for i in watch:
+            if video_id  == i.video_id:
+                message = "Your Video is already Present"
+                break
+            else:
+                watchlater = Watchlater(user=user, video_id = video_id)
+                watchlater.save()
+                message = "Your Video is Successfully Added"
+        song = Song.objects.filter(id=video_id).first()
+        return redirect(f"songs/{video_id}", {"song":song ,"message" : message})
     return render(request, 'Sangeet/watchlater.htm')
 
 def login(request):
