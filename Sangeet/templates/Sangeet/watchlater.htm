@@ -3,9 +3,11 @@
 
 {% block body %}
 {% load static %}
-<h1 style="color:red; text-align:center " >Watch Later</h1>
+<h1 style="color:red; text-align:center " >Listen Later</h1>
+
+
 <div class="container">
-    {% for i in song %}
+    {% for i in song reversed %}
         
             <div class="row" style="max-width: 1000; padding-top:2%">
                 <div class="col-12 mt-3">
@@ -26,4 +28,4 @@
         
     {% endfor %}
     </div>
-{% endblock%}
+{% endblock %}
