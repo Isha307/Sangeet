@@ -6,6 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.db.models import Case, When
 
 # Create your views here.
+def search(request):
+    query = request.GET.get("query")
+    song = Song.objects.all()
+    qs = song.filter(name__icontains=query)
+    return render(request, 'Sangeet/search.htm', {"songs": qs})
+
 def index(request):
     song = Song.objects.all()
     return render(request, 'index.htm', {'song' :song})
