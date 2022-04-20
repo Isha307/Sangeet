@@ -11,6 +11,7 @@ class Song(models.Model):
     song = models.FileField(upload_to= 'songs')
     movie = models.CharField(max_length=2000, default="")
     artist = models.CharField(max_length=2000, default="")
+    release = models.CharField(max_length=2000, default="")
 
 
     def __str__(self):
