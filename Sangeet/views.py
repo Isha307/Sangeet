@@ -3,13 +3,13 @@ from django.shortcuts import redirect, render
 from Sangeet.models import Song, Watchlater, History, Channel
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.db.models import Case, When
+from django.db.models import Case, When, Q
 
 # Create your views here.
 def search(request):
     query = request.GET.get("query")
     song = Song.objects.all()
-    qs = song.filter(name__icontains=query)
+    qs = song.filter(Q(name__icontains=query) | Q(tags__icontains=query) | Q(singer__icontains=query) | Q(movie__icontains=query))
     return render(request, 'Sangeet/search.htm', {"songs": qs})
 
 def index(request):
