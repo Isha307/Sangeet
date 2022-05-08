@@ -15,6 +15,5 @@ urlpatterns = [
     path('c/<str:channel>', views.channel, name='channel'),
     path('upload', views.upload, name='upload'),
     path('search', views.search, name='search'),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':  settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+     
 ]

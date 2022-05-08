@@ -127,6 +127,8 @@ def signup(request):
         user = authenticate(username=username, password = pass1)
         from django.contrib.auth import login
         login(request,user)
+        channel = Channel(name=username)
+        channel.save()
         return redirect('/')
 
     return render(request, 'Sangeet/signup.htm')

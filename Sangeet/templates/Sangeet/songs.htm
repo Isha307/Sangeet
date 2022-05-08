@@ -17,7 +17,15 @@
                             <p class="card-text" style="font-weight:400">{{i.tags}}</p>
                         </div>
                     </div>
+                    {%if user.is_authenticated%}
+                    <form action="/Sangeet/history" method="POST">{% csrf_token %}
+                        <input type="hidden" name="music_id" value="{{i.id}}">
+                    
                     <a href="/Sangeet/songs/{{i.id}}" ><button class="btn btn-outline-danger">Listen</button></a>
+                </form>
+                {% else %}
+                  <a href="/Sangeet/songs/{{i.id}}" ><button class="btn btn-outline-danger">Listen</button></a>
+                  {% endif %}
                 </div>
             </div>
         </div>
