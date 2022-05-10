@@ -11,17 +11,17 @@
 # How to build
 
 ```
-> git clone https://github.com/ifat-mohit/YourStory.git
-> cd Sangeet/
-> pip install pipenv
-> pipenv sync
+git clone https://github.com/Isha307/Sangeet.git
+cd Sangeet/
+pip install pipenv
+pipenv sync
 ```
 # Creating Database and Table
 
 ```
-> python manage.py makemigrations
-> python manage.py migrate
-> python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
 # Testing
@@ -33,7 +33,7 @@ python manage.py test
 # Run on your Local machine
 
 ```
-> python manage.py runserver
+python manage.py runserver
 ```
 Then visit http://localhost:8000 to view the app.
 
