@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Sangeet',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,10 @@ DATABASES = {
     }
 }
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
